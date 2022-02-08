@@ -26,7 +26,17 @@ enum Texts {
     public static var save: String { NSLocalizedString("save", bundle: .module, comment: "") }
     public static var cancel: String { NSLocalizedString("cancel", bundle: .module, comment: "") }
     
+    enum Error {
+        
+        static var not_found: String { NSLocalizedString("error not found", bundle: .module, comment: "") }
+        static var not_enough_permissions: String { NSLocalizedString("error not enough permissions", bundle: .module, comment: "") }
+        static var not_reachable: String { NSLocalizedString("error not reachable", bundle: .module, comment: "") }
+        static var unknown: String { NSLocalizedString("error unknown", bundle: .module, comment: "") }
+    }
+    
     enum Profile {
+        
+        static var name_didnt_set: String { NSLocalizedString("profile name didint set", bundle: .module, comment: "") }
         
         enum Error {
             
@@ -37,77 +47,67 @@ enum Texts {
             static var big_avatar_size: String { NSLocalizedString("profile error big avatar size", bundle: .module, comment: "") }
         }
         
-        static var name_didnt_set: String { NSLocalizedString("profile name didint set", comment: "") }
-        
         enum Auth {
             
-            static var continue_anonymously: String { NSLocalizedString("texts profile auth continue anonymously", comment: "") }
+            static var continue_anonymously: String { NSLocalizedString("profile auth continue anonymously", bundle: .module, comment: "") }
             
-            static var title: String { NSLocalizedString("texts profile auth title", comment: "") }
-            static var description: String { NSLocalizedString("texts profile auth description", comment: "") }
-            static var footer_description: String { NSLocalizedString("texts profile auth footer description", comment: "") }
+            static var title: String { NSLocalizedString("profile auth title", bundle: .module, comment: "") }
+            static var description: String { NSLocalizedString("profile auth description", bundle: .module, comment: "") }
+            static var footer_description: String { NSLocalizedString("profile auth footer description", bundle: .module, comment: "") }
         }
         
         enum Devices {
             
-            static var title: String { NSLocalizedString("profile devices title", comment: "") }
-            static var header: String { NSLocalizedString("profile devices header", comment: "") }
-            static var footer: String { NSLocalizedString("profile devices footer", comment: "") }
+            static var title: String { NSLocalizedString("profile devices title", bundle: .module, comment: "") }
+            static var header: String { NSLocalizedString("profile devices header", bundle: .module, comment: "") }
+            static var footer: String { NSLocalizedString("profile devices footer", bundle: .module, comment: "") }
         }
         
         enum Actions {
             
-            static var email_copied: String { NSLocalizedString("profile actions email copied", comment: "") }
+            static var email_copied: String { NSLocalizedString("profile actions email copied", bundle: .module, comment: "") }
             
             enum Rename {
                 
-                static var title: String { NSLocalizedString("profile actions rename title", comment: "") }
-                static var description: String { NSLocalizedString("profile actions rename description", comment: "") }
+                static var title: String { NSLocalizedString("profile actions rename title", bundle: .module, comment: "") }
+                static var description: String { NSLocalizedString("profile actions rename description", bundle: .module, comment: "") }
                 
-                static var alert_title: String { NSLocalizedString("profile rename alert title", comment: "") }
-                static var alert_description: String { NSLocalizedString("profile rename alert description", comment: "") }
-                static var alert_placeholder: String { NSLocalizedString("profile rename alert placeholder", comment: "") }
+                static var alert_title: String { NSLocalizedString("profile rename alert title", bundle: .module, comment: "") }
+                static var alert_description: String { NSLocalizedString("profile rename alert description", bundle: .module, comment: "") }
+                static var alert_placeholder: String { NSLocalizedString("profile rename alert placeholder", bundle: .module, comment: "") }
             }
             
             enum SignOut {
                 
-                static var title: String { NSLocalizedString("profile actions sign out title", comment: "") }
-                static var description: String { NSLocalizedString("profile actions sign out description", comment: "") }
+                static var title: String { NSLocalizedString("profile actions sign out title", bundle: .module, comment: "") }
+                static var description: String { NSLocalizedString("profile actions sign out description", bundle: .module, comment: "") }
                 
                 enum Confirm {
                     
-                    static var title: String { NSLocalizedString("profile actions sign out confirm title", comment: "") }
-                    static var description: String { NSLocalizedString("profile actions sign out confirm description", comment: "") }
+                    static var title: String { NSLocalizedString("profile actions sign out confirm title", bundle: .module, comment: "") }
+                    static var description: String { NSLocalizedString("profile actions sign out confirm description", bundle: .module, comment: "") }
                 }
             }
             
             enum Delete {
                 
-                static var title: String { NSLocalizedString("profile actions delete title", comment: "") }
-                static var description: String { NSLocalizedString("profile actions delete description", comment: "") }
+                static var title: String { NSLocalizedString("profile actions delete title", bundle: .module, comment: "") }
+                static var description: String { NSLocalizedString("profile actions delete description", bundle: .module, comment: "") }
                 
                 enum Confirm {
                     
-                    static var title: String { NSLocalizedString("profile actions delete confirm title", comment: "") }
-                    static var description: String { NSLocalizedString("profile actions delete confirm description", comment: "") }
+                    static var title: String { NSLocalizedString("profile actions delete confirm title", bundle: .module, comment: "") }
+                    static var description: String { NSLocalizedString("profile actions delete confirm description", bundle: .module, comment: "") }
                 }
             }
         }
         
         enum Avatar {
             
-            static var open_camera: String { NSLocalizedString("profile avatar open camera", comment: "") }
-            static var open_photo_library: String { NSLocalizedString("profile avatar open photo library", comment: "") }
-            static var delete_action_title: String { NSLocalizedString("profile avatar delete action title", comment: "") }
-            static var actions_description: String { NSLocalizedString("profile avatar actions description", comment: "") }
+            static var open_camera: String { NSLocalizedString("profile avatar open camera", bundle: .module, comment: "") }
+            static var open_photo_library: String { NSLocalizedString("profile avatar open photo library", bundle: .module, comment: "") }
+            static var delete_action_title: String { NSLocalizedString("profile avatar delete action title", bundle: .module, comment: "") }
+            static var actions_description: String { NSLocalizedString("profile avatar actions description", bundle: .module, comment: "") }
         }
-    }
-    
-    enum Error {
-        
-        static var not_found: String { NSLocalizedString("error not found", comment: "") }
-        static var not_enough_permissions: String { NSLocalizedString("error not enough permissions", comment: "") }
-        static var not_reachable: String { NSLocalizedString("error not reachable", comment: "") }
-        static var unknown: String { NSLocalizedString("error unknown", comment: "") }
     }
 }

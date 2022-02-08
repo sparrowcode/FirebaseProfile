@@ -38,6 +38,9 @@ let package = Package(
                 .product(name: "SPFirebaseMessaging", package: "SPFirebase"),
                 .product(name: "SPFirebaseStorage", package: "SPFirebase"),
                 .product(name: "SFSymbols", package: "SFSymbols"),
+            ],
+            resources: [
+                .process("Resources")
             ]
         )
     ]
