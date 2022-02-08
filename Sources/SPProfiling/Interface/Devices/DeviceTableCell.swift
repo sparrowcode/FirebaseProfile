@@ -19,35 +19,30 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import UIKit
-import NativeUIKit
-import SparrowKit
-import Models
-import Nuke
 
-extension NativeAvatarView: Nuke_ImageDisplaying {
+import UIKit
+import SparrowKit
+import SPDiffable
+import Models
+import Texts
+
+class DeviceTableCell: SPTableViewCell {
     
-    public func setAvatar(of profileModel: ProfileModel, completion: (()->Void)? = nil) {
-        avatarAppearance = .loading
-        profileModel.getAvatarURL { [weak self] url, error in
-            guard let self = self else { return }
-            var options = ImageLoadingOptions()
-            options.contentModes = .init(success: .scaleAspectFill, failure: .scaleAspectFill, placeholder: .scaleAspectFill)
-            loadImage(with: url, options: options, into: self, progress: nil) { result in
-                switch result {
-                case .success(let response):
-                    self.avatarAppearance = .avatar(response.image)
-                case .failure(_):
-                    self.avatarAppearance = .placeholder
-                }
-                completion?()
-            }
-        }
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }
     
-    open func nuke_display(image: UIImage?, data: Data?) {
-        if let image = image {
-            avatarAppearance = .avatar(image)
-        }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func commonInit() {
+        super.commonInit()
+        textLabel?.font = UIFont.preferredFont(forTextStyle: .title3, weight: .semibold).rounded
+        textLabel?.textColor = .label
+        textLabel?.numberOfLines = .zero
+        detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
+        detailTextLabel?.textColor = .secondaryLabel
+        detailTextLabel?.numberOfLines = .zero
     }
 }

@@ -26,12 +26,16 @@ import SPFirebaseFirestore
 
 extension ProfileModel {
     
-    public static var isAuthed: Bool? { Auth.isAuthed }
+    public static var isAuthed: Bool { Auth.isAuthed }
     public static var isAnonymous: Bool? { Auth.isAnonymous }
     public static var currentProfile: ProfileModel? { SPProfiling.Profile.currentProfile }
     
     public static func getProfile(userID: String, source: SPFirebaseFirestoreSource, completion: @escaping (ProfileModel?, Error?)->Void) {
         SPProfiling.Profile.getProfile(userID: userID, source: source, completion: completion)
+    }
+    
+    public static func getProfile(email: String, source: SPFirebaseFirestoreSource, completion: @escaping (ProfileModel?, Error?)->Void) {
+        SPProfiling.Profile.getProfile(email: email, source: source, completion: completion)
     }
     
     // MARK: - Auth
