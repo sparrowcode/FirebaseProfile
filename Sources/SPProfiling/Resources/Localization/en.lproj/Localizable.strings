@@ -1,1 +1,120 @@
-"profile actions rename description" = "432432";
+/* No comment provided by engineer. */
+"cancel" = "Cancel";
+
+/* No comment provided by engineer. */
+"error not enough permissions" = "Not Enough Permissions";
+
+/* No comment provided by engineer. */
+"error not found" = "Not Found";
+
+/* No comment provided by engineer. */
+"error not reachable" = "Not Reachable";
+
+/* No comment provided by engineer. */
+"error unknown" = "Unknown Error";
+
+/* No comment provided by engineer. */
+"home error empty name" = "A home cannot exist with an empty name.";
+
+/* No comment provided by engineer. */
+"home error name long" = "The name of the home is too long.";
+
+/* No comment provided by engineer. */
+"home error name short" = "The name of the home is too short.";
+
+/* No comment provided by engineer. */
+"profile actions delete confirm description" = "The profile will be permanently deleted along with all data and homes. This action cannot be undone";
+
+/* No comment provided by engineer. */
+"profile actions delete confirm title" = "Delete Profile?";
+
+/* No comment provided by engineer. */
+"profile actions delete description" = "The profile will be deleted along with all data.";
+
+/* No comment provided by engineer. */
+"profile actions delete title" = "Delete Profile";
+
+/* No comment provided by engineer. */
+"profile actions email copied" = "Email Copied";
+
+/* No comment provided by engineer. */
+"profile actions rename description" = "The name will be visible to all members of the home and to those who invite you.";
+
+/* No comment provided by engineer. */
+"profile actions rename title" = "Enter New Name";
+
+/* No comment provided by engineer. */
+"profile actions sign out confirm description" = "All data will be erased from this device. You will be able to restore them by logging in to your account.";
+
+/* No comment provided by engineer. */
+"profile actions sign out confirm title" = "Sign Out?";
+
+/* No comment provided by engineer. */
+"profile actions sign out description" = "When you exit the profile, all data will be deleted from the device.";
+
+/* No comment provided by engineer. */
+"profile actions sign out title" = "Sign Out";
+
+/* No comment provided by engineer. */
+"profile auth continue anonymously" = "Continue Anonymously";
+
+/* No comment provided by engineer. */
+"profile auth description" = "Log in to access the benefits.";
+
+/* No comment provided by engineer. */
+"profile auth footer description" = "Profile can be abandoned and deleted at any time. You can change your name and avatar after logging in.";
+
+/* No comment provided by engineer. */
+"profile auth title" = "Profile";
+
+/* No comment provided by engineer. */
+"profile avatar actions description" = "Select where you want to install the photo from.";
+
+/* No comment provided by engineer. */
+"profile avatar delete action title" = "Delete Avatar";
+
+/* No comment provided by engineer. */
+"profile avatar open camera" = "Camera";
+
+/* No comment provided by engineer. */
+"profile avatar open photo library" = "Photo Library";
+
+/* No comment provided by engineer. */
+"profile devices footer" = "You can disable access to a profile by deleting it.";
+
+/* No comment provided by engineer. */
+"profile devices header" = "Connected Devices";
+
+/* No comment provided by engineer. */
+"profile devices title" = "Devices";
+
+/* No comment provided by engineer. */
+"profile error big avatar size" = "The size of the avatar is too large.";
+
+/* No comment provided by engineer. */
+"profile error big avatar width" = "The width of the avatar is too wide.";
+
+/* No comment provided by engineer. */
+"profile error empty name" = "The profile name cannot be empty.";
+
+/* No comment provided by engineer. */
+"profile error name long" = "Profile name is too long.";
+
+/* No comment provided by engineer. */
+"profile error name short" = "Profile name is too short.";
+
+/* No comment provided by engineer. */
+"profile name didint set" = "Profile name is not set.";
+
+/* No comment provided by engineer. */
+"profile rename alert description" = "The name will be visible to all members of the home and to those who invite you.";
+
+/* No comment provided by engineer. */
+"profile rename alert placeholder" = "Name Surname";
+
+/* No comment provided by engineer. */
+"profile rename alert title" = "Enter New Name";
+
+/* No comment provided by engineer. */
+"save" = "Save";
+
