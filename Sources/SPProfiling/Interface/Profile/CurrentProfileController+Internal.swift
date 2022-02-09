@@ -23,7 +23,7 @@ import UIKit
 import NativeUIKit
 import SparrowKit
 import SPDiffable
-import SFSymbols
+import SPSafeSymbols
 import SPAlert
 
 extension CurrentProfileController {

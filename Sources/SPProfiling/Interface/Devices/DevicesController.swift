@@ -23,8 +23,6 @@
 import UIKit
 import SparrowKit
 import SPDiffable
-import Models
-import Texts
 
 class DevicesController: SPDiffableTableController {
     
