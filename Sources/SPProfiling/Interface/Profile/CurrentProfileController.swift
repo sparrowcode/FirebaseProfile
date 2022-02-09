@@ -24,7 +24,7 @@ import UIKit
 import SparrowKit
 import NativeUIKit
 import SPDiffable
-import SFSymbols
+import SPSafeSymbols
 import SPAlert
 
 class CurrentProfileController: NativeProfileController {

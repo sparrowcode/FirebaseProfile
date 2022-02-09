@@ -10,34 +10,44 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "SPProfiling", 
+            name: "SPProfiling",
             targets: ["SPProfiling"]
         )
     ],
     dependencies: [
+        .package(
+            name: "SPAlert",
+            url: "https://github.com/ivanvorobei/SPAlert", .upToNextMajor(from: "4.2.0")
+        ),
         .package(
             name: "NativeUIKit",
             url: "https://github.com/ivanvorobei/NativeUIKit", .upToNextMajor(from: "1.3.1")
         ),
         .package(
             name: "SPFirebase",
-            url: "https://github.com/ivanvorobei/SPFirebase", .upToNextMajor(from: "1.0.4")
+            url: "https://github.com/ivanvorobei/SPFirebase", .upToNextMajor(from: "1.0.5")
         ),
         .package(
             name: "SPSafeSymbols",
             url: "https://github.com/sparrowcode/SPSafeSymbols", .upToNextMajor(from: "1.0.4")
+        ),
+        .package(
+            name: "Nuke",
+            url: "https://github.com/kean/Nuke", .upToNextMajor(from: "10.7.1")
         )
     ],
     targets: [
         .target(
             name: "SPProfiling",
             dependencies: [
+                .product(name: "SPAlert", package: "SPAlert"),
                 .product(name: "NativeUIKit", package: "NativeUIKit"),
                 .product(name: "SPFirebaseAuth", package: "SPFirebase"),
                 .product(name: "SPFirebaseFirestore", package: "SPFirebase"),
                 .product(name: "SPFirebaseMessaging", package: "SPFirebase"),
                 .product(name: "SPFirebaseStorage", package: "SPFirebase"),
                 .product(name: "SPSafeSymbols", package: "SPSafeSymbols"),
+                .product(name: "Nuke", package: "Nuke")
             ],
             resources: [
                 .process("Resources")

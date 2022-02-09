@@ -22,7 +22,6 @@
 import UIKit
 import NativeUIKit
 import SparrowKit
-import Models
 import Nuke
 
 extension NativeAvatarView: Nuke_ImageDisplaying {
