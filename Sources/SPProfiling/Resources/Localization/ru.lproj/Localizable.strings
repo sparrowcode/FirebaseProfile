@@ -109,3 +109,5 @@
 /* No comment provided by engineer. */
 "save" = "Сохранить";
 
+/* No comment provided by engineer. */
+"profile devices added date" = "Added on %@";

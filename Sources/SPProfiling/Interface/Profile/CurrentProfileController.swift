@@ -58,8 +58,7 @@ class CurrentProfileController: NativeProfileController {
             .init(clouser: { tableView, indexPath, item in
                 guard let deviceModel = (item as? SPDiffableWrapperItem)?.model as? ProfileDeviceModel else { return nil }
                 let cell = self.tableView.dequeueReusableCell(withClass: DeviceTableCell.self, for: indexPath)
-                cell.textLabel?.text = deviceModel.name
-                cell.detailTextLabel?.text = deviceModel.addedDate.formatted(dateStyle: .medium)
+                cell.setDevice(deviceModel)
                 return cell
             })
         ])

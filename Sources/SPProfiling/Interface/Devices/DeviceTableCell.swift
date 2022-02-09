@@ -38,11 +38,21 @@ class DeviceTableCell: SPTableViewCell {
     
     override func commonInit() {
         super.commonInit()
-        textLabel?.font = UIFont.preferredFont(forTextStyle: .title3, weight: .semibold).rounded
+        textLabel?.font = UIFont.preferredFont(forTextStyle: .title3, weight: .semibold, addPoints: -2).rounded
         textLabel?.textColor = .label
         textLabel?.numberOfLines = .zero
         detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
         detailTextLabel?.textColor = .secondaryLabel
         detailTextLabel?.numberOfLines = .zero
+    }
+    
+    // MARK: - Public
+    
+    func setDevice(_ model: ProfileDeviceModel) {
+        textLabel?.text = model.name
+        detailTextLabel?.text = Texts.Profile.Devices.added_date(date: model.addedDate)
+        let font = UIFont.preferredFont(forTextStyle: .title3, weight: .semibold).rounded
+        imageView?.image = UIImage.system("iphone", font: font)
+        imageView?.tintColor = .tint
     }
 }

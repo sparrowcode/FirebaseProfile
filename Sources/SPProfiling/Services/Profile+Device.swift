@@ -41,14 +41,13 @@ extension SPProfiling.Profile {
             SPFirebaseMessaging.removeFCMTokenDidChangeListener()
         }
         
-        #warning("fill language by locale")
         static func makeCurrentDevice() -> ProfileDeviceModel {
             return .init(
                 id: deviceID,
                 name: deviceName,
                 type: deviceType,
                 fcmToken: fcmToken,
-                languageCode: "en",
+                languageCode: SPLocale.current.identifier,
                 addedDate: Date()
             )
         }

@@ -28,12 +28,11 @@ public enum AuthError: LocalizedError {
     case cantPresent
     case cantPrepareRequeridData
     
-    #warning("localise error")
     public var errorDescription: String? {
         switch self {
-        case .canceled: return "canceled"
-        case .cantPresent: return "cantPresent"
-        case .cantPrepareRequeridData: return "cantPrepareRequeridData"
+        case .canceled: return Texts.Error.Auth.canceled
+        case .cantPresent: return Texts.Error.Auth.cant_present
+        case .cantPrepareRequeridData: return Texts.Error.Auth.cant_prepare_requerid_data
         }
     }
     
