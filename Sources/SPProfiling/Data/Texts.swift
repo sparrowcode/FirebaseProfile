@@ -32,6 +32,13 @@ enum Texts {
         static var not_enough_permissions: String { NSLocalizedString("error not enough permissions", bundle: .module, comment: "") }
         static var not_reachable: String { NSLocalizedString("error not reachable", bundle: .module, comment: "") }
         static var unknown: String { NSLocalizedString("error unknown", bundle: .module, comment: "") }
+        
+        enum Auth {
+            
+            static var canceled: String { NSLocalizedString("error auth canceled", bundle: .module, comment: "") }
+            static var cant_present: String { NSLocalizedString("error auth cant present", bundle: .module, comment: "") }
+            static var cant_prepare_requerid_data: String { NSLocalizedString("error auth cant prepare requerid data", bundle: .module, comment: "") }
+        }
     }
     
     enum Profile {
@@ -61,6 +68,11 @@ enum Texts {
             static var title: String { NSLocalizedString("profile devices title", bundle: .module, comment: "") }
             static var header: String { NSLocalizedString("profile devices header", bundle: .module, comment: "") }
             static var footer: String { NSLocalizedString("profile devices footer", bundle: .module, comment: "") }
+            
+            static func added_date(date: Date) -> String {
+                let localisedDate = date.formatted(dateStyle: .medium)
+                return String(format: NSLocalizedString("profile devices added date", bundle: .module, comment: ""), localisedDate)
+            }
         }
         
         enum Actions {
