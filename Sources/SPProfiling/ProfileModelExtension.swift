@@ -53,7 +53,7 @@ extension ProfileModel {
         SPProfiling.signOut(completion: completion)
     }
     
-    #warning("implement delete profile and all data")
+#warning("implement delete profile and all data")
     public func delete(completion: @escaping (DeleteProfileError?)->Void) {
         delay(2) {
             completion(.notEnoughPermissions)

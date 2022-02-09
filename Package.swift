@@ -24,8 +24,8 @@ let package = Package(
             url: "https://github.com/ivanvorobei/SPFirebase", .upToNextMajor(from: "1.0.4")
         ),
         .package(
-            name: "SFSymbols",
-            url: "https://github.com/ivanvorobei/SFSymbols", .upToNextMajor(from: "1.0.3")
+            name: "SPSafeSymbols",
+            url: "https://github.com/sparrowcode/SPSafeSymbols", .upToNextMajor(from: "1.0.4")
         )
     ],
     targets: [
@@ -37,7 +37,7 @@ let package = Package(
                 .product(name: "SPFirebaseFirestore", package: "SPFirebase"),
                 .product(name: "SPFirebaseMessaging", package: "SPFirebase"),
                 .product(name: "SPFirebaseStorage", package: "SPFirebase"),
-                .product(name: "SFSymbols", package: "SFSymbols"),
+                .product(name: "SPSafeSymbols", package: "SPSafeSymbols"),
             ],
             resources: [
                 .process("Resources")
