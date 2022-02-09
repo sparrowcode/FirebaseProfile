@@ -14,16 +14,7 @@
 "error unknown" = "Unknown Error";
 
 /* No comment provided by engineer. */
-"home error empty name" = "A home cannot exist with an empty name.";
-
-/* No comment provided by engineer. */
-"home error name long" = "The name of the home is too long.";
-
-/* No comment provided by engineer. */
-"home error name short" = "The name of the home is too short.";
-
-/* No comment provided by engineer. */
-"profile actions delete confirm description" = "The profile will be permanently deleted along with all data and homes. This action cannot be undone";
+"profile actions delete confirm description" = "The profile will be permanently deleted with all data. This action cannot be undone";
 
 /* No comment provided by engineer. */
 "profile actions delete confirm title" = "Delete Profile?";
@@ -38,7 +29,7 @@
 "profile actions email copied" = "Email Copied";
 
 /* No comment provided by engineer. */
-"profile actions rename description" = "The name will be visible to all members of the home and to those who invite you.";
+"profile actions rename description" = "The name will be visible to everybody.";
 
 /* No comment provided by engineer. */
 "profile actions rename title" = "Enter New Name";
@@ -107,7 +98,7 @@
 "profile name didint set" = "Profile name is not set.";
 
 /* No comment provided by engineer. */
-"profile rename alert description" = "The name will be visible to all members of the home and to those who invite you.";
+"profile rename alert description" = "The name will be visible for everybody.";
 
 /* No comment provided by engineer. */
 "profile rename alert placeholder" = "Name Surname";
