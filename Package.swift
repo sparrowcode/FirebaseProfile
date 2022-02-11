@@ -21,7 +21,7 @@ let package = Package(
         ),
         .package(
             name: "NativeUIKit",
-            url: "https://github.com/ivanvorobei/NativeUIKit", .upToNextMajor(from: "1.3.5")
+            url: "https://github.com/ivanvorobei/NativeUIKit", .upToNextMajor(from: "1.3.7")
         ),
         .package(
             name: "SPFirebase",
