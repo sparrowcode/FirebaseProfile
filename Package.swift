@@ -21,15 +21,15 @@ let package = Package(
         ),
         .package(
             name: "NativeUIKit",
-            url: "https://github.com/ivanvorobei/NativeUIKit", .upToNextMajor(from: "1.3.1")
+            url: "https://github.com/ivanvorobei/NativeUIKit", .upToNextMajor(from: "1.3.5")
         ),
         .package(
             name: "SPFirebase",
-            url: "https://github.com/ivanvorobei/SPFirebase", .upToNextMajor(from: "1.0.5")
+            url: "https://github.com/ivanvorobei/SPFirebase", .upToNextMajor(from: "1.0.6")
         ),
         .package(
             name: "SPSafeSymbols",
-            url: "https://github.com/sparrowcode/SPSafeSymbols", .upToNextMajor(from: "1.0.4")
+            url: "https://github.com/sparrowcode/SPSafeSymbols", .upToNextMajor(from: "1.0.5")
         ),
         .package(
             name: "Nuke",
