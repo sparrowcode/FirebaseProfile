@@ -53,11 +53,8 @@ extension ProfileModel {
         SPProfiling.signOut(completion: completion)
     }
     
-#warning("implement delete profile and all data")
-    public func delete(completion: @escaping (DeleteProfileError?)->Void) {
-        delay(2) {
-            completion(.notEnoughPermissions)
-        }
+    public func delete(on controller: UIViewController, completion: @escaping (Error?)->Void) {
+        SPProfiling.deleteProfile(on: controller, completion: completion)
     }
     
     // MARK: - Data
@@ -115,6 +112,8 @@ extension ProfileModel {
         case .getProfilveAvatar:
             return nil
         case .editProfile(let profileModel):
+            return self.id == profileModel.id ? nil : EditProfileError.notEnoughPermissions
+        case .deleteProfile(let profileModel):
             return self.id == profileModel.id ? nil : EditProfileError.notEnoughPermissions
         case .setProfilveAvatar(let profileModel):
             return self.id == profileModel.id ? nil : SetAvatarError.notEnoughPermissions

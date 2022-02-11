@@ -99,6 +99,33 @@ public class SPProfiling {
         }
     }
     
+    static func deleteProfile(on controller: UIViewController, completion: @escaping (Error?)->Void) {
+        
+        let deleteAction = {
+            SPProfiling.Profile.deleteProfile { error in
+                if let error = error {
+                    completion(error)
+                } else {
+                    Auth.delete { error in
+                        completion(error)
+                    }
+                }
+            }
+        }
+        
+        if Auth.isAnonymous ?? true {
+            deleteAction()
+        } else {
+            Auth.signInAppleForConfirm(on: controller) { error in
+                if let error = error {
+                    completion(error)
+                } else {
+                    deleteAction()
+                }
+            }
+        }
+    }
+    
     // MARK: - Private
     
     private static func configureDataServices() {

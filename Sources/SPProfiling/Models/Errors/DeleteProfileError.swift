@@ -20,14 +20,42 @@
 // SOFTWARE.
 
 import Foundation
+import SPFirebaseFirestore
 
 public enum DeleteProfileError: LocalizedError {
     
     case notEnoughPermissions
+    case notReachable
+    case unknown
     
     public var errorDescription: String? {
         switch self {
         case .notEnoughPermissions: return "notEnoughPermissions"
+        case .notReachable: return Texts.Error.not_reachable
+        case .unknown: return Texts.Error.unknown
+        }
+    }
+    
+    public static func convert(_ error: Error) -> EditProfileError {
+        let error = SPFirebaseFirestoreError.get(by: error)
+        switch error {
+        case .OK: return .unknown
+        case .cancelled: return .notReachable
+        case .unknown: return .unknown
+        case .invalidArgument: return .unknown
+        case .deadlineExceeded: return .unknown
+        case .notFound: return .unknown
+        case .alreadyExists: return .unknown
+        case .permissionDenied: return .notEnoughPermissions
+        case .resourceExhausted: return .unknown
+        case .failedPrecondition: return .unknown
+        case .aborted: return .notReachable
+        case .outOfRange: return .unknown
+        case .unimplemented: return .unknown
+        case .internal: return .unknown
+        case .unavailable: return .notReachable
+        case .dataLoss: return .notReachable
+        case .unauthenticated: return .notEnoughPermissions
         }
     }
 }
