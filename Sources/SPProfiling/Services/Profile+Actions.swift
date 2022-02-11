@@ -98,7 +98,6 @@ extension SPProfiling.Profile {
             completion?(error)
             return
         }
-        
         let name = ProfileModel.cleanProfileName(name)
         if let error = ProfileModel.middlewareProfileName(name) {
             completion?(error)
@@ -184,6 +183,29 @@ extension SPProfiling.Profile {
             if let error = error {
                 completion?(EditProfileError.convert(error))
             } else {
+                completion?(nil)
+            }
+        }
+    }
+    
+    static func deleteProfile(completion: ((Error?)->Void)?) {
+        guard let currentProfileModel = currentProfile else {
+            completion?(DeleteProfileError.notEnoughPermissions)
+            return
+        }
+        if let error = currentProfileModel.middleware(.deleteProfile(currentProfileModel)) {
+            completion?(error)
+            return
+        }
+
+        
+        reset()
+        
+        Firestore.profile_document(userID: currentProfileModel.id).delete { error in
+            if let error = error {
+                completion?(DeleteProfileError.convert(error))
+            } else {
+                print("document deleted")
                 completion?(nil)
             }
         }

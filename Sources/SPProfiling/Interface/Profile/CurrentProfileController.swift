@@ -63,6 +63,13 @@ class CurrentProfileController: NativeProfileController {
             })
         ])
         
+        NotificationCenter.default.addObserver(forName: SPProfiling.didChangedAuthState, object: nil, queue: nil) { [weak self] _ in
+            guard let self = self else { return }
+            if (ProfileModel.currentProfile?.id != self.profileModel.id) {
+                self.dismissAnimated()
+            }
+        }
+        
         NotificationCenter.default.addObserver(forName: SPProfiling.didReloadedProfile, object: nil, queue: nil) { [weak self] _ in
             guard let self = self else { return }
             if let profileModel = ProfileModel.currentProfile {
@@ -124,22 +131,27 @@ class CurrentProfileController: NativeProfileController {
                         action: { [weak self] _, indexPath in
                             guard let self = self else { return }
                             let sourceView = self.tableView.cellForRow(at: indexPath) ?? UIView()
+                            let cell = self.tableView.cellForRow(at: indexPath) as? SPTableViewCell
+                            cell?.setLoading(true)
+                            
                             UIAlertController.confirm(
                                 title: Texts.Profile.Actions.SignOut.Confirm.title,
                                 description: Texts.Profile.Actions.SignOut.Confirm.description,
                                 actionTitle: Texts.Profile.Actions.SignOut.title,
                                 cancelTitle: Texts.cancel,
                                 desctructive: true,
-                                action: { [weak self] in
+                                completion: { [weak self] confirmed in
                                     guard let self = self else { return }
-                                    let cell = self.tableView.cellForRow(at: indexPath) as? SPTableViewCell
-                                    cell?.setLoading(true)
-                                    ProfileModel.currentProfile?.signOut { error in
-                                        if let error = error {
-                                            SPAlert.present(message: error.localizedDescription, haptic: .error)
-                                        } else {
-                                            self.dismissAnimated()
+                                    if confirmed {
+                                        ProfileModel.currentProfile?.signOut { error in
+                                            if let error = error {
+                                                SPAlert.present(message: error.localizedDescription, haptic: .error)
+                                            } else {
+                                                self.dismissAnimated()
+                                            }
+                                            cell?.setLoading(false)
                                         }
+                                    } else {
                                         cell?.setLoading(false)
                                     }
                                 },
@@ -163,21 +175,25 @@ class CurrentProfileController: NativeProfileController {
                         action: { [weak self] _, indexPath in
                             guard let self = self else { return }
                             let sourceView = self.tableView.cellForRow(at: indexPath) ?? UIView()
+                            let cell = self.tableView.cellForRow(at: indexPath) as? SPTableViewCell
+                            cell?.setLoading(true)
                             UIAlertController.confirmDouble(
                                 title: Texts.Profile.Actions.Delete.Confirm.title,
                                 description: Texts.Profile.Actions.Delete.Confirm.description,
                                 actionTitle: Texts.Profile.Actions.Delete.title,
                                 cancelTitle: Texts.cancel,
                                 desctructive: true,
-                                action: { [weak self] in
+                                completion: { [weak self] confirmed in
                                     guard let self = self else { return }
-                                    let cell = self.tableView.cellForRow(at: indexPath) as? SPTableViewCell
-                                    cell?.setLoading(true)
-                                    self.profileModel.delete { error in
-                                        cell?.setLoading(false)
-                                        if let error = error {
-                                            SPAlert.present(message: error.localizedDescription, haptic: .error)
+                                    if confirmed {
+                                        self.profileModel.delete(on: self) { error in
+                                            cell?.setLoading(false)
+                                            if let error = error {
+                                                SPAlert.present(message: error.localizedDescription, haptic: .error)
+                                            }
                                         }
+                                    } else {
+                                        cell?.setLoading(false)
                                     }
                                 },
                                 sourceView: sourceView,

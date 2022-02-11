@@ -80,6 +80,18 @@ class Auth {
         })
     }
     
+    static func delete(completion: @escaping (AuthError?)->Void) {
+        SPFirebaseAuth.delete { error in
+            if let error = error {
+                completion(AuthError.convert(error))
+            } else {
+                signInAnonymously() { error in
+                    completion(error)
+                }
+            }
+        }
+    }
+    
     // MARK: - Data
     
     static var userID: String? { SPFirebaseAuth.userID }

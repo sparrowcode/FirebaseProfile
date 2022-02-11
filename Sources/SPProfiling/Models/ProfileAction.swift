@@ -25,6 +25,7 @@ public enum ProfileAction {
     
     case getProfile
     case editProfile(_ profileModel: ProfileModel)
+    case deleteProfile(_ profileModel: ProfileModel)
     case getProfilveAvatar
     case setProfilveAvatar(_ profileModel: ProfileModel)
 }
