@@ -19,7 +19,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-
 import UIKit
 import SparrowKit
 import NativeUIKit
@@ -27,7 +26,7 @@ import SPDiffable
 import SPSafeSymbols
 import SPAlert
 
-class CurrentProfileController: NativeProfileController {
+class ProfileController: NativeProfileController {
     
     internal var profileModel: ProfileModel
     

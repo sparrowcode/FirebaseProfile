@@ -19,14 +19,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-
 import UIKit
 import SparrowKit
 import NativeUIKit
 import SPDiffable
 import SPAlert
 
-extension CurrentProfileController {
+extension ProfileController {
     
     internal func showTextFieldToChangeName() {
         let alertController = UIAlertController(title: Texts.Profile.Actions.Rename.alert_title, message: Texts.Profile.Actions.Rename.alert_description, preferredStyle: .alert)

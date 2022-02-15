@@ -19,25 +19,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import Foundation
+import UIKit
+import SPDiffable
 
-public enum ProfileMiddlewareError: LocalizedError {
+open class DiffableProfileItem: SPDiffableActionableItem {
     
-    case nameShort
-    case nameLong
-    case emptyName
-    case invalidEmail
-    case avatarBigWidth
-    case avatarBigSize
+    public static let id: String = "spprofiling-profile-item"
     
-    public var errorDescription: String? {
-        switch self {
-        case .nameShort: return Texts.Error.Profile.name_short
-        case .nameLong: return Texts.Error.Profile.name_long
-        case .emptyName: return Texts.Error.Profile.empty_name
-        case .invalidEmail: return Texts.Error.Profile.empty_name
-        case .avatarBigWidth: return Texts.Error.Profile.big_avatar_width
-        case .avatarBigSize: return Texts.Error.Profile.big_avatar_size
-        }
+    public init(action: SPDiffableActionableItem.Action? = nil) {
+        super.init(id: Self.id, action: action)
     }
 }

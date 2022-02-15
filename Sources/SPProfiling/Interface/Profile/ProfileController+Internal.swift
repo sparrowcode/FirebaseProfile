@@ -26,7 +26,7 @@ import SPDiffable
 import SPSafeSymbols
 import SPAlert
 
-extension CurrentProfileController {
+extension ProfileController {
     
     internal func configureHeader() {
         setProfile(profileModel, completion: { [weak self] in
@@ -99,7 +99,7 @@ extension CurrentProfileController {
     
     internal func setProfile(_ profileModel: ProfileModel, completion: (()->())? = nil) {
         headerView.nameLabel.text = profileModel.name
-        headerView.namePlaceholderLabel.text = Texts.Profile.name_didnt_set
+        headerView.namePlaceholderLabel.text = Texts.Profile.placeholder_name
         if let email = profileModel.email { headerView.emailButton.setTitle(email) }
         headerView.layoutSubviews()
         
