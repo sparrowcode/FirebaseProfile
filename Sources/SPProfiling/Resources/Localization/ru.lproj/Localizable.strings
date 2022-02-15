@@ -17,7 +17,7 @@
 "error auth canceled" = "Аутентификация отменена";
 
 /* No comment provided by engineer. */
-"error auth cant prepare requerid data" = "Не удалось подготовить необходимые данные";
+"error auth cant prepare required data" = "Не удалось подготовить необходимые данные";
 
 /* No comment provided by engineer. */
 "error auth cant present" = "Не удалось показать экран аутентификации";

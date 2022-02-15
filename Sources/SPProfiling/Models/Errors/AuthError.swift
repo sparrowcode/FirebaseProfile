@@ -26,13 +26,13 @@ public enum AuthError: LocalizedError {
   
     case canceled
     case cantPresent
-    case cantPrepareRequeridData
+    case cantPrepareRequiredData
     
     public var errorDescription: String? {
         switch self {
         case .canceled: return Texts.Error.Auth.canceled
         case .cantPresent: return Texts.Error.Auth.cant_present
-        case .cantPrepareRequeridData: return Texts.Error.Auth.cant_prepare_requerid_data
+        case .cantPrepareRequiredData: return Texts.Error.Auth.cant_prepare_required_data
         }
     }
     
@@ -40,7 +40,7 @@ public enum AuthError: LocalizedError {
         switch error {
         case .canceled: return .canceled
         case .cantPresent: return .cantPresent
-        case .faild: return .cantPrepareRequeridData
+        case .faild: return .cantPrepareRequiredData
         }
     }
 }
