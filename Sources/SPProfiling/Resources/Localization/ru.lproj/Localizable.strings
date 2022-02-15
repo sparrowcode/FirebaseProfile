@@ -1,5 +1,26 @@
 /* No comment provided by engineer. */
+"auth continue anonymously" = "Продолжить анонимно";
+
+/* No comment provided by engineer. */
+"auth description" = "Войдите, чтобы получить доступ к преимуществам.";
+
+/* No comment provided by engineer. */
+"auth footer description" = "Профиль можно покинуть или удалить в любое время.";
+
+/* No comment provided by engineer. */
+"auth sign in" = "Войти";
+
+/* No comment provided by engineer. */
 "cancel" = "Отменить";
+
+/* No comment provided by engineer. */
+"error auth canceled" = "Аутентификация отменена";
+
+/* No comment provided by engineer. */
+"error auth cant prepare requerid data" = "Не удалось подготовить необходимые данные";
+
+/* No comment provided by engineer. */
+"error auth cant present" = "Не удалось показать экран аутентификации";
 
 /* No comment provided by engineer. */
 "error not enough permissions" = "Недостаточно прав";
@@ -11,22 +32,37 @@
 "error not reachable" = "Недоступно";
 
 /* No comment provided by engineer. */
+"error profile big avatar size" = "Размер аватара слишком большой.";
+
+/* No comment provided by engineer. */
+"error profile big avatar width" = "Аватар слишком широкий.";
+
+/* No comment provided by engineer. */
+"error profile empty name" = "Имя профиля не может быть пустым.";
+
+/* No comment provided by engineer. */
+"error profile name long" = "Имя профиля слишком длинное.";
+
+/* No comment provided by engineer. */
+"error profile name short" = "Имя слишком короткое.";
+
+/* No comment provided by engineer. */
 "error unknown" = "Неизвестная ошибка";
 
 /* No comment provided by engineer. */
-"profile actions delete confirm description" = "Профиль будет удалён вместе со всеми данными. Это действие нельзя отменить.";
+"profile actions delete confirm description" = "Профиль будет безвозвратно удален со всеми данными. Это действие нельзя отменить.";
 
 /* No comment provided by engineer. */
 "profile actions delete confirm title" = "Удалить профиль?";
 
 /* No comment provided by engineer. */
-"profile actions delete description" = "Профиль будет удалён вместе со всеми данными.";
+"profile actions delete description" = "Профиль будет удален вместе со всеми данными.";
 
 /* No comment provided by engineer. */
 "profile actions delete title" = "Удалить профиль";
 
 /* No comment provided by engineer. */
-"profile actions email copied" = "Скопировано";
+"profile actions email copied" = "Почта скопирована";
 
 /* No comment provided by engineer. */
 "profile actions rename description" = "Имя будет видно всем.";
@@ -35,43 +71,34 @@
 "profile actions rename title" = "Введите новое имя";
 
 /* No comment provided by engineer. */
-"profile actions sign out confirm description" = "Все данные будут удалены с этого устройства. Их можно будет восстановить повторно войдя в профиль.";
+"profile actions sign out confirm description" = "Все данные будут удалены с этого устройства. Вы сможете восстановить их, войдя в свою профиль заново.";
 
 /* No comment provided by engineer. */
 "profile actions sign out confirm title" = "Выйти из профиля?";
 
 /* No comment provided by engineer. */
-"profile actions sign out description" = "Когда вы выйдете из профиля, все данные на устройстве будут удалены.";
+"profile actions sign out description" = "При выходе из профиля все данные будут удалены с устройства.";
 
 /* No comment provided by engineer. */
 "profile actions sign out title" = "Выйти";
 
 /* No comment provided by engineer. */
-"profile auth continue anonymously" = "Продолжить анонимно";
+"profile avatar actions description" = "Выберите место, откуда хотите установить фотографию.";
 
 /* No comment provided by engineer. */
-"profile auth description" = "Войдите для использования преимуществ.";
-
-/* No comment provided by engineer. */
-"profile auth footer description" = "Вы можете удалить профиль в любой момент. Смена имени и аватара доступна после входа.";
-
-/* No comment provided by engineer. */
-"profile auth title" = "Профиль";
-
-/* No comment provided by engineer. */
-"profile avatar actions description" = "Выберите, откуда хотите использовать фото.";
-
-/* No comment provided by engineer. */
-"profile avatar delete action title" = "Удалить аватар";
+"profile avatar delete action title" = "Удалить";
 
 /* No comment provided by engineer. */
 "profile avatar open camera" = "Камера";
 
 /* No comment provided by engineer. */
-"profile avatar open photo library" = "Фотопленка";
+"profile avatar open photo library" = "Библиотека фото";
 
 /* No comment provided by engineer. */
-"profile devices footer" = "Вы можете забрать доступ к профилю, удалив устройство.";
+"profile devices added date" = "Добавлено %@";
+
+/* No comment provided by engineer. */
+"profile devices footer" = "Вы можете запретить доступ к профилю, удалив его.";
 
 /* No comment provided by engineer. */
 "profile devices header" = "Подключенные устройства";
@@ -80,25 +107,10 @@
 "profile devices title" = "Устройства";
 
 /* No comment provided by engineer. */
-"profile error big avatar size" = "Размер аватара слишком большой.";
+"profile placeholder name" = "Нет имени";
 
 /* No comment provided by engineer. */
-"profile error big avatar width" = "Аватар слишком широкий.";
-
-/* No comment provided by engineer. */
-"profile error empty name" = "Имя не может быть пустым.";
-
-/* No comment provided by engineer. */
-"profile error name long" = "Имя слишком длинное.";
-
-/* No comment provided by engineer. */
-"profile error name short" = "Имя слишком короткое.";
-
-/* No comment provided by engineer. */
-"profile name didint set" = "Имя не установлено.";
-
-/* No comment provided by engineer. */
-"profile rename alert description" = "Имя будет видно всем.";
+"profile rename alert description" = "Имя профиля будет видно всем.";
 
 /* No comment provided by engineer. */
 "profile rename alert placeholder" = "Имя Фамилия";
@@ -109,5 +121,3 @@
 /* No comment provided by engineer. */
 "save" = "Сохранить";
 
-/* No comment provided by engineer. */
-"profile devices added date" = "Added on %@";
