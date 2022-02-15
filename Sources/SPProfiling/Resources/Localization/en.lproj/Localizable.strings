@@ -17,7 +17,7 @@
 "error auth canceled" = "Authentication canceled";
 
 /* No comment provided by engineer. */
-"error auth cant prepare requerid data" = "Failed to prepare the necessary data";
+"error auth cant prepare required data" = "Failed to prepare the necessary data";
 
 /* No comment provided by engineer. */
 "error auth cant present" = "Failed to show authentication screen";
