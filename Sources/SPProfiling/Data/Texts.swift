@@ -26,6 +26,8 @@ enum Texts {
     public static var save: String { NSLocalizedString("save", bundle: .module, comment: "") }
     public static var cancel: String { NSLocalizedString("cancel", bundle: .module, comment: "") }
     
+    // MARK: - Error
+    
     enum Error {
         
         static var not_found: String { NSLocalizedString("error not found", bundle: .module, comment: "") }
@@ -39,29 +41,32 @@ enum Texts {
             static var cant_present: String { NSLocalizedString("error auth cant present", bundle: .module, comment: "") }
             static var cant_prepare_requerid_data: String { NSLocalizedString("error auth cant prepare requerid data", bundle: .module, comment: "") }
         }
+        
+        enum Profile {
+            
+            static var name_short: String { NSLocalizedString("error profile name short", bundle: .module, comment: "") }
+            static var name_long: String { NSLocalizedString("error profile name long", bundle: .module, comment: "") }
+            static var empty_name: String { NSLocalizedString("error profile empty name", bundle: .module, comment: "") }
+            static var big_avatar_width: String { NSLocalizedString("error profile big avatar width", bundle: .module, comment: "") }
+            static var big_avatar_size: String { NSLocalizedString("error profile big avatar size", bundle: .module, comment: "") }
+        }
     }
+    
+    // MARK: - Auth
+    
+    enum Auth {
+        
+        static var sign_in: String { NSLocalizedString("auth sign in", bundle: .module, comment: "") }
+        static var continue_anonymously: String { NSLocalizedString("auth continue anonymously", bundle: .module, comment: "") }
+        static var description: String { NSLocalizedString("auth description", bundle: .module, comment: "") }
+        static var footer_description: String { NSLocalizedString("auth footer description", bundle: .module, comment: "") }
+    }
+    
+    // MARK: - Profile
     
     enum Profile {
         
-        static var name_didnt_set: String { NSLocalizedString("profile name didint set", bundle: .module, comment: "") }
-        
-        enum Error {
-            
-            static var name_short: String { NSLocalizedString("profile error name short", bundle: .module, comment: "") }
-            static var name_long: String { NSLocalizedString("profile error name long", bundle: .module, comment: "") }
-            static var empty_name: String { NSLocalizedString("profile error empty name", bundle: .module, comment: "") }
-            static var big_avatar_width: String { NSLocalizedString("profile error big avatar width", bundle: .module, comment: "") }
-            static var big_avatar_size: String { NSLocalizedString("profile error big avatar size", bundle: .module, comment: "") }
-        }
-        
-        enum Auth {
-            
-            static var continue_anonymously: String { NSLocalizedString("profile auth continue anonymously", bundle: .module, comment: "") }
-            
-            static var title: String { NSLocalizedString("profile auth title", bundle: .module, comment: "") }
-            static var description: String { NSLocalizedString("profile auth description", bundle: .module, comment: "") }
-            static var footer_description: String { NSLocalizedString("profile auth footer description", bundle: .module, comment: "") }
-        }
+        static var placeholder_name: String { NSLocalizedString("profile placeholder name", bundle: .module, comment: "") }
         
         enum Devices {
             

@@ -80,7 +80,7 @@ extension ProfileModel {
     public static func showCurrentProfile(on viewController: UIViewController) {
         guard currentProfile != nil else { return }
         
-        let controller = CurrentProfileController()
+        let controller = ProfileController()
         let navigationController = controller.wrapToNavigationController(prefersLargeTitles: false)
         controller.navigationItem.rightBarButtonItem = controller.closeBarButtonItem
         

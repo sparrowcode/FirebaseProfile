@@ -19,25 +19,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import Foundation
+import UIKit
+import SPDiffable
 
-public enum ProfileMiddlewareError: LocalizedError {
+extension SPDiffableTableDataSource.CellProvider {
     
-    case nameShort
-    case nameLong
-    case emptyName
-    case invalidEmail
-    case avatarBigWidth
-    case avatarBigSize
-    
-    public var errorDescription: String? {
-        switch self {
-        case .nameShort: return Texts.Error.Profile.name_short
-        case .nameLong: return Texts.Error.Profile.name_long
-        case .emptyName: return Texts.Error.Profile.empty_name
-        case .invalidEmail: return Texts.Error.Profile.empty_name
-        case .avatarBigWidth: return Texts.Error.Profile.big_avatar_width
-        case .avatarBigSize: return Texts.Error.Profile.big_avatar_size
+    public static var profile: SPDiffableTableDataSource.CellProvider  {
+        return SPDiffableTableDataSource.CellProvider() { (tableView, indexPath, item) -> UITableViewCell? in
+            guard let _ = item as? DiffableProfileItem else { return nil }
+            let cell = tableView.dequeueReusableCell(withClass: ProfileTableViewCell.self, for: indexPath)
+            return cell
         }
     }
 }

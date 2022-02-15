@@ -15,26 +15,11 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(
-            name: "SPAlert",
-            url: "https://github.com/ivanvorobei/SPAlert", .upToNextMajor(from: "4.2.0")
-        ),
-        .package(
-            name: "NativeUIKit",
-            url: "https://github.com/ivanvorobei/NativeUIKit", .upToNextMajor(from: "1.3.7")
-        ),
-        .package(
-            name: "SPFirebase",
-            url: "https://github.com/ivanvorobei/SPFirebase", .upToNextMajor(from: "1.0.6")
-        ),
-        .package(
-            name: "SPSafeSymbols",
-            url: "https://github.com/sparrowcode/SPSafeSymbols", .upToNextMajor(from: "1.0.5")
-        ),
-        .package(
-            name: "Nuke",
-            url: "https://github.com/kean/Nuke", .upToNextMajor(from: "10.7.1")
-        )
+        .package(url: "https://github.com/ivanvorobei/SPAlert", .upToNextMajor(from: "4.2.0")),
+        .package(url: "https://github.com/ivanvorobei/NativeUIKit", .upToNextMajor(from: "1.3.7")),
+        .package(url: "https://github.com/ivanvorobei/SPFirebase", .upToNextMajor(from: "1.0.6")),
+        .package(url: "https://github.com/sparrowcode/SPSafeSymbols", .upToNextMajor(from: "1.0.5")),
+        .package(url: "https://github.com/kean/Nuke", .upToNextMajor(from: "10.7.1"))
     ],
     targets: [
         .target(
