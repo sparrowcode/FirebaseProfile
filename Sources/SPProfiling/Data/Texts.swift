@@ -39,7 +39,7 @@ enum Texts {
             
             static var canceled: String { NSLocalizedString("error auth canceled", bundle: .module, comment: "") }
             static var cant_present: String { NSLocalizedString("error auth cant present", bundle: .module, comment: "") }
-            static var cant_prepare_requerid_data: String { NSLocalizedString("error auth cant prepare requerid data", bundle: .module, comment: "") }
+            static var cant_prepare_required_data: String { NSLocalizedString("error auth cant prepare required data", bundle: .module, comment: "") }
         }
         
         enum Profile {
