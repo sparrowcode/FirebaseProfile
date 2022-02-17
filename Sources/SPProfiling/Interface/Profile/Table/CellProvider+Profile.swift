@@ -26,8 +26,10 @@ extension SPDiffableTableDataSource.CellProvider {
     
     public static var profile: SPDiffableTableDataSource.CellProvider  {
         return SPDiffableTableDataSource.CellProvider() { (tableView, indexPath, item) -> UITableViewCell? in
-            guard let _ = item as? DiffableProfileItem else { return nil }
+            guard let item = item as? DiffableProfileItem else { return nil }
             let cell = tableView.dequeueReusableCell(withClass: ProfileTableViewCell.self, for: indexPath)
+            cell.profileLabelsView.descriptionLabel.text = item.cellProfileSubtitle
+            cell.authLabelsView.descriptionLabel.text = item.cellAuthSubtitle
             return cell
         }
     }

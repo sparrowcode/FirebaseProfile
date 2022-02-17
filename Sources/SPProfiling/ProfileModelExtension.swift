@@ -97,6 +97,31 @@ extension ProfileModel {
         viewController.present(navigationController)
     }
     
+    public static func showAuth(
+        title: String,
+        description: String,
+        features: [NativeOnboardingFeatureView.FeatureModel],
+        completion: @escaping ()->Void,
+        on viewController: UIViewController
+    ) {
+        let controller = AuthController(title: title, description: description, completion: completion)
+        controller.setFeatures(features)
+        let navigationController = NativeNavigationController(rootViewController: controller)
+        controller.navigationItem.rightBarButtonItem = controller.closeBarButtonItem
+        
+        let horizontalMargin: CGFloat = NativeLayout.Spaces.Margins.modal_screen_horizontal
+        controller.modalPresentationStyle = .formSheet
+        controller.preferredContentSize = .init(width: 540, height: 620)
+        controller.view.layoutMargins.left = horizontalMargin
+        controller.view.layoutMargins.right = horizontalMargin
+        
+        navigationController.inheritLayoutMarginsForNavigationBar = true
+        navigationController.inheritLayoutMarginsForСhilds = true
+        navigationController.viewDidLayoutSubviews()
+        
+        viewController.present(navigationController)
+    }
+    
     
     // MARK: - Middleware
     

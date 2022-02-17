@@ -21,12 +21,38 @@
 
 import UIKit
 import SPDiffable
+import NativeUIKit
 
 open class DiffableProfileItem: SPDiffableActionableItem {
     
     public static let id: String = "spprofiling-profile-item"
     
-    public init(action: SPDiffableActionableItem.Action? = nil) {
-        super.init(id: Self.id, action: action)
+    var cellAuthSubtitle: String
+    var cellProfileSubtitle: String
+    
+    public init(
+        authTitle: String,
+        authDescription: String,
+        cellAuthSubtitle: String,
+        cellProfileSubtitle: String,
+        features: [NativeOnboardingFeatureView.FeatureModel],
+        completion: @escaping ()->Void,
+        presentOn controller: UIViewController
+    ) {
+        self.cellAuthSubtitle = cellAuthSubtitle
+        self.cellProfileSubtitle = cellProfileSubtitle
+        super.init(id: Self.id, action: { item, indexPath in
+            if ProfileModel.isAnonymous ?? true {
+                ProfileModel.showAuth(
+                    title: authTitle,
+                    description: authDescription,
+                    features: features,
+                    completion: completion,
+                    on: controller
+                )
+            } else {
+                ProfileModel.showCurrentProfile(on: controller)
+            }
+        })
     }
 }
