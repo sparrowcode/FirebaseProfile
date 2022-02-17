@@ -58,17 +58,6 @@ open class ProfileTableViewCell: SPTableViewCell {
         NotificationCenter.default.removeObserver(self)
     }
     
-    // MARK: - Ovveride
-    
-    #warning("change to subbiews")
-    open override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(highlighted, animated: animated)
-        let higlightContent = (higlightStyle == .content)
-        if higlightContent {
-            [avatarView, profileLabelsView, authLabelsView].forEach({ $0?.alpha = highlighted ? 0.6 : 1 })
-        }
-    }
-    
     // MARK: - Layout
     
     open override func layoutSubviews() {

@@ -74,6 +74,8 @@ enum Texts {
             static var header: String { NSLocalizedString("profile devices header", bundle: .module, comment: "") }
             static var footer: String { NSLocalizedString("profile devices footer", bundle: .module, comment: "") }
             
+            static var manage_devices: String { NSLocalizedString("profile devices manage devices", bundle: .module, comment: "") }
+            
             static func added_date(date: Date) -> String {
                 let localisedDate = date.formatted(dateStyle: .medium)
                 return String(format: NSLocalizedString("profile devices added date", bundle: .module, comment: ""), localisedDate)
@@ -109,6 +111,7 @@ enum Texts {
             enum Delete {
                 
                 static var title: String { NSLocalizedString("profile actions delete title", bundle: .module, comment: "") }
+                static var header: String { NSLocalizedString("profile actions delete header", bundle: .module, comment: "") }
                 static var description: String { NSLocalizedString("profile actions delete description", bundle: .module, comment: "") }
                 
                 enum Confirm {
