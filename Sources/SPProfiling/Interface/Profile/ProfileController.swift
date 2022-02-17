@@ -30,6 +30,8 @@ class ProfileController: NativeProfileController {
     
     internal var profileModel: ProfileModel
     
+    // MARK: - Init
+    
     init() {
         if let currentProfile = ProfileModel.currentProfile {
             self.profileModel = currentProfile
@@ -46,6 +48,8 @@ class ProfileController: NativeProfileController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +120,20 @@ class ProfileController: NativeProfileController {
                 id: Item.devices.section_id,
                 header: SPDiffableTextHeaderFooter(text: Texts.Profile.Devices.header),
                 footer: SPDiffableTextHeaderFooter(text: Texts.Profile.Devices.footer),
-                items: profileModel.devices.map({ SPDiffableWrapperItem(id: $0.id, model: $0) })
+                items: profileModel.devices.prefix(3).map({ SPDiffableWrapperItem(id: $0.id, model: $0) }) + [
+                    NativeDiffableLeftButton(
+                        text: Texts.Profile.Devices.manage_devices,
+                        textColor: .tint,
+                        detail: "\(profileModel.devices.count) Devices",
+                        detailColor: .secondaryLabel,
+                        icon: nil,
+                        accessoryType: .disclosureIndicator,
+                        higlightStyle: .content,
+                        action: { item, indexPath in
+                            guard let navigationController = self.navigationController else { return }
+                            navigationController.pushViewController(DevicesController())
+                    })
+                ]
             ),
             .init(
                 id: Item.sign_out.section_id,
@@ -163,7 +180,7 @@ class ProfileController: NativeProfileController {
             ),
             .init(
                 id: Item.delete_account.section_id,
-                header: nil,
+                header: SPDiffableTextHeaderFooter(text: Texts.Profile.Actions.Delete.header),
                 footer: SPDiffableTextHeaderFooter(text: Texts.Profile.Actions.Delete.description),
                 items: [
                     NativeDiffableLeftButton(

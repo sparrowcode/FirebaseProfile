@@ -19,12 +19,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-
 import UIKit
 import SparrowKit
 import SPDiffable
 
 class DeviceTableCell: SPTableViewCell {
+    
+    // MARK: - Init
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
@@ -36,12 +37,13 @@ class DeviceTableCell: SPTableViewCell {
     
     override func commonInit() {
         super.commonInit()
-        textLabel?.font = UIFont.preferredFont(forTextStyle: .title3, weight: .semibold, addPoints: -2).rounded
+        textLabel?.font = UIFont.preferredFont(forTextStyle: .title3, weight: .medium)
         textLabel?.textColor = .label
         textLabel?.numberOfLines = .zero
         detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
         detailTextLabel?.textColor = .secondaryLabel
         detailTextLabel?.numberOfLines = .zero
+        higlightStyle = .content
     }
     
     // MARK: - Public
@@ -49,8 +51,19 @@ class DeviceTableCell: SPTableViewCell {
     func setDevice(_ model: ProfileDeviceModel) {
         textLabel?.text = model.name
         detailTextLabel?.text = Texts.Profile.Devices.added_date(date: model.addedDate)
-        let font = UIFont.preferredFont(forTextStyle: .title3, weight: .semibold).rounded
-        imageView?.image = UIImage.system("iphone", font: font)
+        let font = UIFont.preferredFont(forTextStyle: .title3, weight: .medium)
+        
+        imageView?.image = {
+            switch model.type {
+            case .phone:
+                return UIImage.system("iphone", font: font)
+            case .pad:
+                return UIImage.system("ipad", font: font)
+            case .desktop:
+                return UIImage.system("laptopcomputer", font: font)
+            }
+        }()
+        
         imageView?.tintColor = .tint
     }
 }
