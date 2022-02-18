@@ -59,6 +59,9 @@
 "profile actions delete description" = "Профиль будет удален вместе со всеми данными.";
 
 /* No comment provided by engineer. */
+"profile actions delete header" = "Удаление";
+
+/* No comment provided by engineer. */
 "profile actions delete title" = "Удалить профиль";
 
 /* No comment provided by engineer. */
@@ -102,6 +105,9 @@
 
 /* No comment provided by engineer. */
 "profile devices header" = "Подключенные устройства";
+
+/* No comment provided by engineer. */
+"profile devices manage devices" = "Управление устройствами";
 
 /* No comment provided by engineer. */
 "profile devices title" = "Устройства";
