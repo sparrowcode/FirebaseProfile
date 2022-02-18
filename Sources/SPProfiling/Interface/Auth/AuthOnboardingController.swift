@@ -20,33 +20,27 @@
 // SOFTWARE.
 
 import UIKit
-import SparrowKit
-import SPDiffable
 import NativeUIKit
+import SparrowKit
+import SPAlert
 
-open class DiffableProfileItem: SPDiffableActionableItem {
+open class AuthOnboardingController: AuthController, NativeOnboardingChildInterface {
     
-    public static let id: String = "spprofiling-profile-item"
+    public weak var onboardingManagerDelegate: NativeOnboardingManagerDelegate?
     
-    var cellAuthSubtitle: String
-    var cellProfileSubtitle: String
+    // MARK: - Init
     
-    public init(
-        authTitle: String,
-        authDescription: String,
-        cellAuthSubtitle: String,
-        cellProfileSubtitle: String,
-        features: [NativeOnboardingFeatureView.FeatureModel],
-        presentOn controller: UIViewController
-    ) {
-        self.cellAuthSubtitle = cellAuthSubtitle
-        self.cellProfileSubtitle = cellProfileSubtitle
-        super.init(id: Self.id, action: { item, indexPath in
-            if ProfileModel.isAnonymous ?? true {
-                ProfileModel.showAuth(title: authTitle, description: authDescription, features: features, on: controller)
-            } else {
-                ProfileModel.showCurrentProfile(on: controller)
-            }
-        })
+    public init(title: String, description: String) {
+        super.init(
+            title: title,
+            description: description
+        )
+        self.completion = { controller in
+            self.onboardingManagerDelegate?.onboardingActionComplete(for: controller)
+        }
+    }
+    
+    public required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

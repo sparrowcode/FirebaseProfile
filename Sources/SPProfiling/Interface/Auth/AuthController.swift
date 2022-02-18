@@ -24,27 +24,31 @@ import NativeUIKit
 import SparrowKit
 import SPAlert
 
-public class AuthController: NativeOnboardingFeaturesController {
+open class AuthController: NativeOnboardingFeaturesController {
     
-    private var completion: ()->Void
+    public var completion: ((AuthController)->Void)?
     
     // MARK: - Views
     
-    let actionToolbarView = NativeAppleAuthToolBarView()
+    public let actionToolbarView = AuthToolBarView()
     
     // MARK: - Init
     
-    init(title: String, description: String, completion: @escaping ()->Void) {
-        self.completion = completion
+    public init(title: String, description: String, completion: ((AuthController)->Void)? = nil) {
         super.init(
             iconImage: NativeAvatarView.generatePlaceholderImage(fontSize: 80, fontWeight: .medium),
             title: title,
             subtitle: description
         )
+        self.completion = completion
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Lifecycle
@@ -56,16 +60,56 @@ public class AuthController: NativeOnboardingFeaturesController {
             navigationController.mimicrateToolBarView = actionToolbarView
         }
         
-        actionToolbarView.authButton.addTarget(self, action: #selector(self.tapSignInApple), for: .touchUpInside)
+        actionToolbarView.authButton.addTarget(self, action: #selector(self.tapAppleSignIn), for: .touchUpInside)
+        actionToolbarView.skipAuthButton.addTarget(self, action: #selector(self.tapContinueAnon), for: .touchUpInside)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateSkipAuthButton), name: SPProfiling.didChangedAuthState, object: nil)
+        
+        updateSkipAuthButton()
     }
     
-    @objc func tapSignInApple() {
+    // MARK: - Actions
+    
+    @objc func tapAppleSignIn() {
+        self.actionToolbarView.setLoading(true)
         ProfileModel.signInApple(on: self) { error in
             if let error = error {
+                self.actionToolbarView.setLoading(false)
                 SPAlert.present(message: error.localizedDescription, haptic: .error)
             } else {
-                self.completion()
+                self.completion?(self)
             }
         }
+    }
+    
+    @objc func tapContinueAnon() {
+        if ProfileModel.isAnonymous ?? false {
+            self.completion?(self)
+        } else {
+            self.actionToolbarView.setLoading(true)
+            ProfileModel.signInAnonymously() { error in
+                if let error = error {
+                    self.actionToolbarView.setLoading(false)
+                    SPAlert.present(message: error.localizedDescription, haptic: .error)
+                } else {
+                    self.completion?(self)
+                }
+            }
+        }
+    }
+    
+    // MARK: - Private
+    
+    @objc func updateSkipAuthButton() {
+        let allowed: Bool = {
+            if ProfileModel.isAnonymous != nil {
+                // Any auth already isset.
+                // Not allowed anonymous auth.
+                return false
+            } else {
+                return true
+            }
+        }()
+        actionToolbarView.skipAuthButton.isHidden = !allowed
     }
 }
