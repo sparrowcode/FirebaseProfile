@@ -101,25 +101,31 @@ extension ProfileModel {
         title: String,
         description: String,
         features: [NativeOnboardingFeatureView.FeatureModel],
-        completion: @escaping ()->Void,
-        on viewController: UIViewController
+        on presentingController: UIViewController
     ) {
-        let controller = AuthController(title: title, description: description, completion: completion)
-        controller.setFeatures(features)
-        let navigationController = NativeNavigationController(rootViewController: controller)
-        controller.navigationItem.rightBarButtonItem = controller.closeBarButtonItem
+        let authController = AuthController(title: title, description: description, completion: { authController in
+            guard ProfileModel.isAuthed else { return }
+            authController.dismiss(animated: true) {
+                if !(ProfileModel.isAnonymous ?? true) {
+                    ProfileModel.showCurrentProfile(on: presentingController)
+                }
+            }
+        })
+        authController.setFeatures(features)
+        let navigationController = NativeNavigationController(rootViewController: authController)
+        authController.navigationItem.rightBarButtonItem = authController.closeBarButtonItem
         
         let horizontalMargin: CGFloat = NativeLayout.Spaces.Margins.modal_screen_horizontal
-        controller.modalPresentationStyle = .formSheet
-        controller.preferredContentSize = .init(width: 540, height: 620)
-        controller.view.layoutMargins.left = horizontalMargin
-        controller.view.layoutMargins.right = horizontalMargin
+        authController.modalPresentationStyle = .formSheet
+        authController.preferredContentSize = .init(width: 540, height: 620)
+        authController.view.layoutMargins.left = horizontalMargin
+        authController.view.layoutMargins.right = horizontalMargin
         
         navigationController.inheritLayoutMarginsForNavigationBar = true
         navigationController.inheritLayoutMarginsForСhilds = true
         navigationController.viewDidLayoutSubviews()
         
-        viewController.present(navigationController)
+        presentingController.present(navigationController)
     }
     
     
