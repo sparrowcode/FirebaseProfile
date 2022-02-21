@@ -27,7 +27,9 @@ import SPFirebaseAuth
 
 public class SPProfiling {
     
-    public static func configure(firebaseOptions: FirebaseOptions) {
+    public static func configure(_ authWay: AuthWay, firebaseOptions: FirebaseOptions) {
+        
+        shared.authWay = authWay
         
         // Start Firebase
         SPFirebase.configure(with: firebaseOptions)
@@ -89,13 +91,7 @@ public class SPProfiling {
     
     static func signOut(completion: @escaping (AuthError?)->Void) {
         Auth.signOut { error in
-            if let error = error {
-                completion(error)
-            } else {
-                signInAnonymously() { error in
-                    completion(error)
-                }
-            }
+            completion(error)
         }
     }
     
@@ -147,6 +143,7 @@ public class SPProfiling {
     
     // MARK: - Singltone
     
+    private var authWay: AuthWay = .anonymouslyAllowed
     private var authProcess: Bool = false
     private static let shared = SPProfiling()
     private init() {}
@@ -157,4 +154,6 @@ public class SPProfiling {
         get { SPProfiling.shared.authProcess }
         set { SPProfiling.shared.authProcess = newValue }
     }
+    
+    public static var authWay: AuthWay { shared.authWay }
 }

@@ -102,12 +102,17 @@ open class AuthController: NativeOnboardingFeaturesController {
     
     @objc func updateSkipAuthButton() {
         let allowed: Bool = {
-            if ProfileModel.isAnonymous != nil {
-                // Any auth already isset.
-                // Not allowed anonymous auth.
+            switch SPProfiling.authWay {
+            case .onlyAuthed:
                 return false
-            } else {
-                return true
+            case .anonymouslyAllowed:
+                if ProfileModel.isAnonymous != nil {
+                    // Any auth already isset.
+                    // Not allowed anonymous auth.
+                    return false
+                } else {
+                    return true
+                }
             }
         }()
         actionToolbarView.skipAuthButton.isHidden = !allowed

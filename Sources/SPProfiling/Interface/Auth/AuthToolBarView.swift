@@ -55,12 +55,12 @@ open class AuthToolBarView: NativeMimicrateToolBarView {
     open func setLoading(_ state: Bool) {
         if state {
             activityIndicatorView.startAnimating()
-            authButton.isHidden = true
-            skipAuthButton.isHidden = true
+            authButton.alpha = .zero
+            skipAuthButton.alpha = .zero
         } else {
             activityIndicatorView.stopAnimating()
-            authButton.isHidden = false
-            skipAuthButton.isHidden = false
+            authButton.alpha = 1
+            skipAuthButton.alpha = 1
         }
     }
     

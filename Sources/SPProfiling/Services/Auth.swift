@@ -73,9 +73,7 @@ class Auth {
             if let error = error {
                 completion(AuthError.convert(error))
             } else {
-                signInAnonymously() { error in
-                    completion(error)
-                }
+                completion(nil)
             }
         })
     }
