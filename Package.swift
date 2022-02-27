@@ -16,7 +16,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ivanvorobei/SPAlert", .upToNextMajor(from: "4.2.0")),
-        .package(url: "https://github.com/ivanvorobei/NativeUIKit", .upToNextMajor(from: "1.4.2")),
+        .package(url: "https://github.com/ivanvorobei/NativeUIKit", .upToNextMajor(from: "1.4.4")),
         .package(url: "https://github.com/ivanvorobei/SPFirebase", .upToNextMajor(from: "1.0.8")),
         .package(url: "https://github.com/sparrowcode/SPSafeSymbols", .upToNextMajor(from: "1.0.5")),
         .package(url: "https://github.com/kean/Nuke", .upToNextMajor(from: "10.7.1"))
