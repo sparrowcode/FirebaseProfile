@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright © 2022 Ivan Vorobei (hello@ivanvorobei.by)
+// Copyright © 2022 Ivan Vorobei (hello@ivanvorobei.io)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -29,10 +29,10 @@ import SPAlert
 extension ProfileController {
     
     internal func configureHeader() {
-        setProfile(profileModel, completion: { [weak self] in
+        headerView.avatarView.setAvatar(of: profileModel) { [weak self] in
             guard let self = self else { return }
             self.configureAvatarActions()
-        })
+        }
     }
     
     internal func configureAvatarActions() {
@@ -96,7 +96,7 @@ extension ProfileController {
         
         headerView.avatarView.isEditable = true
     }
-    
+    /*
     internal func setProfile(_ profileModel: ProfileModel, completion: (()->())? = nil) {
         headerView.nameLabel.text = profileModel.name
         headerView.namePlaceholderLabel.text = Texts.Profile.placeholder_name
@@ -114,5 +114,5 @@ extension ProfileController {
     @objc func didTapEmailButton() {
         SPAlert.present(title: Texts.Profile.Actions.email_copied, message: nil, preset: .done, completion: nil)
         UIPasteboard.general.string = profileModel.email
-    }
+    }*/
 }

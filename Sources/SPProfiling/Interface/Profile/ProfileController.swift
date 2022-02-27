@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright © 2022 Ivan Vorobei (hello@ivanvorobei.by)
+// Copyright © 2022 Ivan Vorobei (hello@ivanvorobei.io)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -64,7 +64,7 @@ class ProfileController: NativeProfileController {
                 cell.setDevice(deviceModel)
                 return cell
             })
-        ])
+        ] + SPDiffableTableDataSource.CellProvider.default)
         
         NotificationCenter.default.addObserver(forName: SPProfiling.didChangedAuthState, object: nil, queue: nil) { [weak self] _ in
             guard let self = self else { return }
@@ -105,14 +105,29 @@ class ProfileController: NativeProfileController {
                 header: nil,
                 footer: SPDiffableTextHeaderFooter(text: Texts.Profile.Actions.Rename.description),
                 items: [
-                    NativeDiffableLeftButton(
+                    SPDiffableTableRowTextFieldTitle(
                         id: Item.change_name.item_id,
-                        text: Texts.Profile.Actions.Rename.title,
-                        icon: .init(.pencil),
-                        action: { [weak self] _, _ in
-                            guard let self = self else { return }
-                            self.showTextFieldToChangeName()
-                        }
+                        icon: nil,
+                        title: "Name",
+                        text: profileModel.name,
+                        placeholder: "Your name",
+                        autocorrectionType: .no,
+                        keyboardType: .default,
+                        autocapitalizationType: .words,
+                        clearButtonMode: .never,
+                        delegate: nil
+                    ),
+                    SPDiffableTableRowTextFieldTitle(
+                        id: Item.change_name.item_id + "email",
+                        icon: nil,
+                        title: "Email",
+                        text: profileModel.email,
+                        placeholder: "Your email",
+                        autocorrectionType: .no,
+                        keyboardType: .emailAddress,
+                        autocapitalizationType: .words,
+                        clearButtonMode: .never,
+                        delegate: nil
                     )
                 ]
             ),
