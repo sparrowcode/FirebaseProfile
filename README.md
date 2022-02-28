@@ -29,7 +29,7 @@ If you prefer not to use any of dependency managers, you can integrate manually.
 First call configure services:
 
 ```swift
-let filePath = Bundle.module.path(forResource: Constants.Firebase.plist_filename, ofType: .empty)!
+let filePath = Bundle.main.path(forResource: Constants.Firebase.plist_filename, ofType: .empty)!
 let options = FirebaseOptions(contentsOfFile: filePath)!
 SPProfiling.configure(firebaseOptions: options)
 ```
