@@ -77,62 +77,72 @@ class ProfileController: NativeProfileController {
             guard let self = self else { return }
             if let profileModel = ProfileModel.currentProfile {
                 self.profileModel = profileModel
-                self.configureHeader()
-                self.diffableDataSource?.updateLayout(animated: true)
+                self.diffableDataSource?.set(self.content, animated: true)
             }
         }
         
         configureHeader()
+        dismissKeyboardWhenTappedAround()
     }
     
     // MARK: - Diffable
     
-    internal enum Item: String, CaseIterable {
+    internal enum Section: String, CaseIterable {
         
-        case change_name
+        case pulibc_info
         case devices
         case sign_out
         case delete_account
         
-        var section_id: String { rawValue + "_section" }
-        var item_id: String { rawValue + "_row" }
+        var id: String { rawValue }
+    }
+    
+    internal enum Item: String, CaseIterable {
+        
+        case name
+        case email
+        case sign_out
+        case delete_account
+        
+        var id: String { rawValue }
     }
     
     private var content: [SPDiffableSection] {
         return [
             .init(
-                id: Item.change_name.section_id,
-                header: nil,
-                footer: SPDiffableTextHeaderFooter(text: Texts.Profile.Actions.Rename.description),
+                id: Section.pulibc_info.id,
+                header: SPDiffableTextHeaderFooter(text: Texts.Profile.public_data_header),
+                footer: SPDiffableTextHeaderFooter(text: Texts.Profile.public_data_footer),
                 items: [
                     SPDiffableTableRowTextFieldTitle(
-                        id: Item.change_name.item_id,
+                        id: Item.name.id,
                         icon: nil,
-                        title: "Name",
+                        title: Texts.Profile.name_title,
                         text: profileModel.name,
-                        placeholder: "Your name",
+                        placeholder: Texts.Profile.placeholder_name,
                         autocorrectionType: .no,
                         keyboardType: .default,
                         autocapitalizationType: .words,
                         clearButtonMode: .never,
-                        delegate: nil
+                        delegate: self
                     ),
                     SPDiffableTableRowTextFieldTitle(
-                        id: Item.change_name.item_id + "email",
+                        id: Item.email.id,
                         icon: nil,
-                        title: "Email",
+                        title: Texts.Profile.email_title,
                         text: profileModel.email,
-                        placeholder: "Your email",
+                        placeholder: .empty,
                         autocorrectionType: .no,
                         keyboardType: .emailAddress,
                         autocapitalizationType: .words,
                         clearButtonMode: .never,
-                        delegate: nil
+                        delegate: nil,
+                        editable: false
                     )
                 ]
             ),
             .init(
-                id: Item.devices.section_id,
+                id: Section.devices.id,
                 header: SPDiffableTextHeaderFooter(text: Texts.Profile.Devices.header),
                 footer: SPDiffableTextHeaderFooter(text: Texts.Profile.Devices.footer),
                 items: profileModel.devices.prefix(3).map({ SPDiffableWrapperItem(id: $0.id, model: $0) }) + [
@@ -151,12 +161,12 @@ class ProfileController: NativeProfileController {
                 ]
             ),
             .init(
-                id: Item.sign_out.section_id,
-                header: nil,
+                id: Section.sign_out.id,
+                header: SPDiffableTextHeaderFooter(text: Texts.Profile.Actions.SignOut.title),
                 footer: SPDiffableTextHeaderFooter(text: Texts.Profile.Actions.SignOut.description),
                 items: [
                     NativeDiffableLeftButton(
-                        id: Item.sign_out.item_id,
+                        id: Item.sign_out.id,
                         text: Texts.Profile.Actions.SignOut.title,
                         icon: .init(.xmark.squareFill),
                         action: { [weak self] _, indexPath in
@@ -194,12 +204,12 @@ class ProfileController: NativeProfileController {
                 ]
             ),
             .init(
-                id: Item.delete_account.section_id,
+                id: Section.delete_account.id,
                 header: SPDiffableTextHeaderFooter(text: Texts.Profile.Actions.Delete.header),
                 footer: SPDiffableTextHeaderFooter(text: Texts.Profile.Actions.Delete.description),
                 items: [
                     NativeDiffableLeftButton(
-                        id: Item.delete_account.item_id,
+                        id: Item.delete_account.id,
                         text: Texts.Profile.Actions.Delete.title,
                         textColor: .destructiveColor,
                         icon: .init(.trash.fill).withTintColor(.destructiveColor, renderingMode: .alwaysOriginal),
