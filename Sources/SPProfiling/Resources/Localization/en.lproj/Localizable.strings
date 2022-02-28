@@ -104,7 +104,7 @@
 "profile devices footer" = "You can disable access to a profile by deleting it.";
 
 /* No comment provided by engineer. */
-"profile devices header" = "Connected Devices";
+"profile devices header" = "Devices";
 
 /* No comment provided by engineer. */
 "profile devices manage devices" = "Manage Devices";

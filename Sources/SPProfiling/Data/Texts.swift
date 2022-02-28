@@ -66,7 +66,12 @@ enum Texts {
     
     enum Profile {
         
+        static var name_title: String { NSLocalizedString("profile name title", bundle: .module, comment: "") }
+        static var email_title: String { NSLocalizedString("profile email title", bundle: .module, comment: "") }
         static var placeholder_name: String { NSLocalizedString("profile placeholder name", bundle: .module, comment: "") }
+        
+        static var public_data_header: String { NSLocalizedString("profile public data header", bundle: .module, comment: "") }
+        static var public_data_footer: String { NSLocalizedString("profile public data footer", bundle: .module, comment: "") }
         
         enum Devices {
             
@@ -83,18 +88,6 @@ enum Texts {
         }
         
         enum Actions {
-            
-            static var email_copied: String { NSLocalizedString("profile actions email copied", bundle: .module, comment: "") }
-            
-            enum Rename {
-                
-                static var title: String { NSLocalizedString("profile actions rename title", bundle: .module, comment: "") }
-                static var description: String { NSLocalizedString("profile actions rename description", bundle: .module, comment: "") }
-                
-                static var alert_title: String { NSLocalizedString("profile rename alert title", bundle: .module, comment: "") }
-                static var alert_description: String { NSLocalizedString("profile rename alert description", bundle: .module, comment: "") }
-                static var alert_placeholder: String { NSLocalizedString("profile rename alert placeholder", bundle: .module, comment: "") }
-            }
             
             enum SignOut {
                 

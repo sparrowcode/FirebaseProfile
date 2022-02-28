@@ -104,7 +104,7 @@
 "profile devices footer" = "Вы можете запретить доступ к профилю, удалив его.";
 
 /* No comment provided by engineer. */
-"profile devices header" = "Подключенные устройства";
+"profile devices header" = "Устройства";
 
 /* No comment provided by engineer. */
 "profile devices manage devices" = "Управление устройствами";

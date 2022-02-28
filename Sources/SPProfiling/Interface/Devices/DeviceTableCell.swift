@@ -37,7 +37,7 @@ class DeviceTableCell: SPTableViewCell {
     
     override func commonInit() {
         super.commonInit()
-        textLabel?.font = UIFont.preferredFont(forTextStyle: .title3, weight: .medium)
+        textLabel?.font = UIFont.preferredFont(forTextStyle: .body, weight: .medium)
         textLabel?.textColor = .label
         textLabel?.numberOfLines = .zero
         detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
@@ -65,5 +65,12 @@ class DeviceTableCell: SPTableViewCell {
         }()
         
         imageView?.tintColor = .tint
+    }
+    
+    // MARK: - Layout
+    
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+        let superSize = super.sizeThatFits(size)
+        return .init(width: superSize.width, height: superSize.height + 2)
     }
 }
