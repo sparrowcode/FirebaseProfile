@@ -20,6 +20,9 @@
 "error auth cant prepare required data" = "Failed to prepare the necessary data";
 
 /* No comment provided by engineer. */
+"error auth cant prepare required data" = "Failed to prepare the required data";
+
+/* No comment provided by engineer. */
 "error auth cant present" = "Failed to show authentication screen";
 
 /* No comment provided by engineer. */
@@ -113,7 +116,19 @@
 "profile devices title" = "Devices";
 
 /* No comment provided by engineer. */
+"profile email title" = "Email";
+
+/* No comment provided by engineer. */
+"profile name title" = "Name";
+
+/* No comment provided by engineer. */
 "profile placeholder name" = "No Name";
+
+/* No comment provided by engineer. */
+"profile public data footer" = "The information will be visible to all users.";
+
+/* No comment provided by engineer. */
+"profile public data header" = "Personal";
 
 /* No comment provided by engineer. */
 "profile rename alert description" = "The name will be visible for everybody.";
