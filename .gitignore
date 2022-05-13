@@ -5,5 +5,5 @@
 # Swift Package Manager
 .swiftpm
 
-# User Interface
-*UserInterfaceState.xcuserstate
+# Assets
+Elements.sketch
