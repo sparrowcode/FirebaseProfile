@@ -23,7 +23,7 @@
 
 ## Installation
 
-Ready to use on iOS 13+.
+Ready to use on iOS 13+
 
 ### Swift Package Manager
 

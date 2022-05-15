@@ -3,21 +3,24 @@
 import PackageDescription
 
 let package = Package(
-    name: "FirebaseProfile",
+    name: "FRMNAME",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v13), 
+        .tvOS(.v13), 
+        .watchOS(.v6)
     ],
     products: [
         .library(
-            name: "FirebaseProfile", targets: ["FirebaseProfile"]
+            name: "FRMNAME",
+            targets: ["FRMNAME"]
         )
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "FirebaseProfile",
+            name: "FRMNAME",
             swiftSettings: [
-                .define("FIREBASEPROFILE_SPM")
+                .define("FRMNAME_SPM")
             ]
         )
     ],
