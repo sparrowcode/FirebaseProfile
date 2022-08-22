@@ -3,24 +3,34 @@
 import PackageDescription
 
 let package = Package(
-    name: "FRMNAME",
+    name: "FirebaseProfile",
     platforms: [
-        .iOS(.v13), 
-        .tvOS(.v13), 
+        .iOS(.v13),
+        .tvOS(.v13),
         .watchOS(.v6)
     ],
     products: [
         .library(
-            name: "FRMNAME",
-            targets: ["FRMNAME"]
+            name: "FirebaseProfile",
+            targets: ["FirebaseProfile"]
         )
     ],
-    dependencies: [],
+    dependencies: [
+        .package(
+            name: "Firebase",
+            url: "https://github.com/firebase/firebase-ios-sdk", .upToNextMajor(from: "8.13.0")
+        )
+    ],
     targets: [
         .target(
-            name: "FRMNAME",
+            name: "FirebaseProfile",
+            dependencies: [
+                .product(name: "FirebaseAuth", package: "Firebase"),
+                .product(name: "FirebaseFirestore", package: "Firebase"),
+                .product(name: "FirebaseStorage", package: "Firebase")
+            ]
             swiftSettings: [
-                .define("FRMNAME_SPM")
+                .define("FIREBASEPROFILE_SPM")
             ]
         )
     ],
