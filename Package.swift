@@ -28,7 +28,7 @@ let package = Package(
                 .product(name: "FirebaseAuth", package: "Firebase"),
                 .product(name: "FirebaseFirestore", package: "Firebase"),
                 .product(name: "FirebaseStorage", package: "Firebase")
-            ]
+            ],
             swiftSettings: [
                 .define("FIREBASEPROFILE_SPM")
             ]
