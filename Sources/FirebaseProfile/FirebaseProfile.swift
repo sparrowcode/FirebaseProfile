@@ -1,5 +1,4 @@
 import Foundation
-import SwiftBoost
 
 enum FirebaseProfile {
     

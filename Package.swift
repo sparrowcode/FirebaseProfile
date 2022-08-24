@@ -19,12 +19,14 @@ let package = Package(
         .package(
             name: "Firebase",
             url: "https://github.com/firebase/firebase-ios-sdk", .upToNextMajor(from: "8.13.0")
-        )
+        ),
+        .package(path: "SwiftBoost")
     ],
     targets: [
         .target(
             name: "FirebaseProfile",
             dependencies: [
+                .product(name: "SwiftBoost", package: "SwiftBoost"),
                 .product(name: "FirebaseAuth", package: "Firebase"),
                 .product(name: "FirebaseFirestore", package: "Firebase"),
                 .product(name: "FirebaseStorage", package: "Firebase")

@@ -3,7 +3,7 @@ import AuthenticationServices
 
 class AppleAuthService: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     
-    static func signIn(on window: UIWindow, completion: ((AppleAuthData?) -> Void)?) {
+    static func signIn(on window: UIWindow, completion: ((AuthData?) -> Void)?) {
         shared.completion = completion
         shared.window = window
         let appleIDProvider = ASAuthorizationAppleIDProvider()
@@ -36,7 +36,7 @@ class AppleAuthService: NSObject, ASAuthorizationControllerDelegate, ASAuthoriza
             }
             return nil
         }()
-        let data = AppleAuthData(
+        let data = AuthData(
             identityToken: token,
             name: name,
             email: appleCredential.email
@@ -58,14 +58,14 @@ class AppleAuthService: NSObject, ASAuthorizationControllerDelegate, ASAuthoriza
     // MARK: - Singltone
     
     private weak var window: UIWindow?
-    private var completion: ((AppleAuthData?) -> Void)?
+    private var completion: ((AuthData?) -> Void)?
     
     static let shared = AppleAuthService()
     private override init() {}
     
     // MARK: - Models
     
-    struct AppleAuthData {
+    struct AuthData {
         
         public let identityToken: String
         public let name: String?
